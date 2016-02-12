@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('mwc:ecmascript','server',{weak:true});
+  api.use('mwc:ecmascript@0.0.3','server',{weak:true});
   api.versionsFrom('1.0');
   api.addFiles(['extensions.js'],'server');
   api.export('MWCExtend','server');
