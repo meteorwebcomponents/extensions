@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('mwc:ecmascript','server',{weak:true});
+  api.use('mwc:ecmascript@1.0.4','server',{weak:true});
   api.use('underscore',['server']);
   api.versionsFrom('1.0');
   api.addFiles(['extensions.js'],'server');
