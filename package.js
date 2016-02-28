@@ -1,17 +1,27 @@
 Package.describe({
-  name: 'mwc:extensions',
-  version: '1.0.4',
-  summary: 'MWC compiler extensions',
+  name: "mwc:extensions",
+  version: "1.0.6",
+  summary: "MWC compiler extensions",
   git: "https://github.com/meteorwebcomponents/extensions.git",
-  documentation: 'README.md'
+  documentation: "README.md"
 });
 
-Package.onUse(function(api) {
-  api.use('mwc:ecmascript@1.0.4','server',{weak:true});
-  api.use('underscore',['server']);
-  api.versionsFrom('1.0');
-  api.addFiles(['extensions.js'],'server');
-  api.export('MWCExtend','server');
+
+Package.registerBuildPlugin({
+  name: "initializing-extensions",
+  use: [
+    'underscore'
+  ],
+  sources: [
+    'plugin/extensions.js'
+  ],
+  npmDependencies: {
+    'mkdirp': '0.5.0',
+    'node-echo': '0.1.1',
+    'js-beautify': '1.5.5'
+  }
 });
 
+Package.on_use(function(api) {
+});
 
