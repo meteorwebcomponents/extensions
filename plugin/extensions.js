@@ -30,13 +30,15 @@ if(canProceed() && !fs.existsSync(extDir)) {
   // if there is no mwc-extensions when running `meteor`
   // we need to kill the current running process, otherwise
   // mwc:extensions from the root meteor directory will be taken as default. ie the plugin
-  process.exit(0);
+  //console.log(process.argv) 
+    process.exit(0);
+
 
 }
 
 // check whether is this `meteor test-packages` or not
 function canProceed() {
-  var unAcceptableCommands = {'test-packages': 1, 'publish': 1};
+  var unAcceptableCommands = {'add':1,'test-packages': 1, 'publish': 1};
   if(process.argv.length > 2) {
     var command = process.argv[2];
     if(unAcceptableCommands[command]) {
@@ -101,10 +103,10 @@ function _indexJsContent() {
         return html;
       }
       if (_.isEmpty(packageObject)) {
-        console.warn(packageName + " is an empty object. Export the compile function")
+        console.warn(packageName + " is an empty object. Export the compile function");
         return html;
       }
-      var compileFn = _.isEmpty(ext["compileFunction"]) ? 'MWC_' + packageName.replace(':', '_') : ext["compileFunction"]
+      var compileFn = _.isEmpty(ext["compileFunction"]) ? 'MWC_' + packageName.replace(':', '_') : ext["compileFunction"];
       if (_.isString(compileFn)) {
 
         html = doCompile(packageObject, compileFn, html, ext, packageName);
@@ -143,7 +145,7 @@ function _packageJsContent () {
   var _ = Npm.require('underscore');
   Package.describe({
     name: "mwc:extensions",
-    version: "1.0.6",
+    version: "1.0.8",
     summary: "MWC compiler extensions",
     git: "https://github.com/meteorwebcomponents/extensions.git",
     documentation: "README.md"
