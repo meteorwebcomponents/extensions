@@ -21,16 +21,14 @@ if(canProceed() && !fs.existsSync(extDir)) {
   // add new container as a package
   var meteorPackages = fs.readFileSync(path.resolve('.meteor/packages'), 'utf8');
   if(!meteorPackages.match("mwc:extensions\n"))
-    echo.sync("\nmwc:extensions", ">>", ".meteor/packages");
+    //echo.sync("\nmwc:extensions", ">>", ".meteor/packages");
 
   console.log();
   console.log("-> mwc extensions support has been initialized.")
-  console.log("-> please start your app again.");
   console.log();
   // if there is no mwc-extensions when running `meteor`
   // we need to kill the current running process, otherwise
   // mwc:extensions from the root meteor directory will be taken as default. ie the plugin
-  //console.log(process.argv) 
     process.exit(0);
 
 
@@ -145,7 +143,7 @@ function _packageJsContent () {
   var _ = Npm.require('underscore');
   Package.describe({
     name: "mwc:extensions",
-    version: "1.0.11",
+    version: "1.0.14",
     summary: "MWC compiler extensions",
     git: "https://github.com/meteorwebcomponents/extensions.git",
     documentation: "README.md"
