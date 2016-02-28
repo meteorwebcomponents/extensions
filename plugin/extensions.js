@@ -20,7 +20,7 @@ if(canProceed() && !fs.existsSync(extDir)) {
 
   // add new container as a package
   var meteorPackages = fs.readFileSync(path.resolve('.meteor/packages'), 'utf8');
-  if(!!meteorPackages.match("mwc:extensions\n"))
+  if(!meteorPackages.match("mwc:extensions\n"))
     echo.sync("\nmwc:extensions", ">>", ".meteor/packages");
 
   console.log();
@@ -145,7 +145,7 @@ function _packageJsContent () {
   var _ = Npm.require('underscore');
   Package.describe({
     name: "mwc:extensions",
-    version: "1.0.8",
+    version: "1.0.11",
     summary: "MWC compiler extensions",
     git: "https://github.com/meteorwebcomponents/extensions.git",
     documentation: "README.md"
