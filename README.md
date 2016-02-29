@@ -6,9 +6,11 @@
 
 `meteor add mwc:extensions` .its important to add extensions after adding compiler
 
-compiler.mwc.json for extensions. 
+Example compiler.mwc.json including extensions. 
 
-mwc:extensions feeds vulcanized html content to the compileFunctions of each extension. If compileFunction is not explicitly defined package takes compileFunction as `MWC_my_package` if package name is my:package.
+mwc:extensions feeds vulcanized html content to the compileFunctions of each extension. If compileFunction is not explicitly defined package takes compileFunction as `MWC_my_package` if package name is `my:package`. 
+
+compileFunction : datatype = Array or String
 
 ```json
 
