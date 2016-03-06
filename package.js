@@ -1,6 +1,6 @@
 Package.describe({
   name: "mwc:extensions",
-  version: "1.0.13",
+  version: "1.0.19",
   summary: "MWC compiler extensions",
   git: "https://github.com/meteorwebcomponents/extensions.git",
   documentation: "README.md"

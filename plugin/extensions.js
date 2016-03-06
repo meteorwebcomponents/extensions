@@ -10,7 +10,7 @@ var indexJsPath = path.resolve(extDir, 'extensions.js');
 
 
 if(canProceed() && !fs.existsSync(extDir)) {
-  console.log("=> Creating mwc extensions package");
+  console.log("=> Creating local mwc extensions package");
 
   // create new mwc extensions directory
   mkdirp.sync(extDir);
@@ -21,7 +21,9 @@ if(canProceed() && !fs.existsSync(extDir)) {
   // add new container as a package
   var meteorPackages = fs.readFileSync(path.resolve('.meteor/packages'), 'utf8');
   if(!meteorPackages.match("mwc:extensions\n"))
-    //echo.sync("\nmwc:extensions", ">>", ".meteor/packages");
+    echo.sync("\nmwc:extensions\n", ">>", ".meteor/packages");
+  if(!meteorPackages.match("mwc:compiler\n"))
+    echo.sync("\nmwc:compiler\n", ">>", ".meteor/packages");
 
   console.log();
   console.log("-> mwc extensions support has been initialized.")
@@ -39,6 +41,7 @@ function canProceed() {
   var unAcceptableCommands = {'add':1,'test-packages': 1, 'publish': 1};
   if(process.argv.length > 2) {
     var command = process.argv[2];
+console.log(command);
     if(unAcceptableCommands[command]) {
       return false;
     }
@@ -143,7 +146,7 @@ function _packageJsContent () {
   var _ = Npm.require('underscore');
   Package.describe({
     name: "mwc:extensions",
-    version: "1.0.14",
+    version: "1.0.19",
     summary: "MWC compiler extensions",
     git: "https://github.com/meteorwebcomponents/extensions.git",
     documentation: "README.md"
