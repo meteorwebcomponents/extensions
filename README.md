@@ -12,7 +12,7 @@ mwc:extensions feeds vulcanized html content to the compileFunctions of each ext
 
 compileFunction : datatype = Array or String
 
-```json
+``` json
 
 {
     "append": [
